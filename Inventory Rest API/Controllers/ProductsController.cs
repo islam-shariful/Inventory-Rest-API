@@ -34,5 +34,11 @@ namespace Inventory_Rest_API.Controllers
             productRepository.Insert(product);
             return Created("api/Products/" + product.ProductId, product);
         }
+        public IHttpActionResult Put([FromUri] int id, [FromBody] Product product)
+        {
+            product.ProductId = id;
+            productRepository.Update(product);
+            return Ok(product);
+        }
     }
 }
