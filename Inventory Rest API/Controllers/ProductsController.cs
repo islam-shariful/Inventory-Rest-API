@@ -16,5 +16,17 @@ namespace Inventory_Rest_API.Controllers
         {
             return Ok(productRepository.GetAll());
         }
+        public IHttpActionResult Get(int id)
+        {
+            var product = productRepository.Get(id);
+            if (product == null)
+            {
+                return StatusCode(HttpStatusCode.NoContent);
+            }
+            else
+            {
+                return Ok(productRepository.Get(id));
+            }
+        }
     }
 }
