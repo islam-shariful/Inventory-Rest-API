@@ -1,7 +1,5 @@
 # Inventory-Rest-API
 
-# Inventory-Rest-API
-
 * Clone Repo ["git clone https://github.com/islam-shariful/Inventory-Rest-API.git"]
 * Open solution
 * Right click on 'Inventory-Rest-API' and choose 'Unload'
