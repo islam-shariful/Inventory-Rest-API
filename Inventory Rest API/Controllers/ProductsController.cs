@@ -1,4 +1,5 @@
-﻿using Inventory_Rest_API.Repositories;
+﻿using Inventory_Rest_API.Models;
+using Inventory_Rest_API.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,11 @@ namespace Inventory_Rest_API.Controllers
             {
                 return Ok(productRepository.Get(id));
             }
+        }
+        public IHttpActionResult Post(Product product)
+        {
+            productRepository.Insert(product);
+            return Created("api/Products/" + product.ProductId, product);
         }
     }
 }
