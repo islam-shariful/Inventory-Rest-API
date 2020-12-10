@@ -39,5 +39,10 @@ namespace Inventory_Rest_API.Controllers
             categoryRepository.Update(category);
             return Ok(category);
         }
+        public IHttpActionResult Delete(int id)
+        {
+            categoryRepository.Delete(id);
+            return StatusCode(HttpStatusCode.NoContent);
+        }
     }
 }
