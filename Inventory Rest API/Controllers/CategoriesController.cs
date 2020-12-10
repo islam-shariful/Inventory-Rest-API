@@ -15,5 +15,9 @@ namespace Inventory_Rest_API.Controllers
         {
             return Ok(categoryRepository.GetAll());
         }
+        public IHttpActionResult GetAll(int id)
+        {
+            return Ok(categoryRepository.Get(id));
+        }
     }
 }
