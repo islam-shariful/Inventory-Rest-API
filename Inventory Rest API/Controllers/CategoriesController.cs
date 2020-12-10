@@ -33,6 +33,11 @@ namespace Inventory_Rest_API.Controllers
             categoryRepository.Insert(category);
             return Created("api/Categories/" + category.CategoryId, category);
         }
-
+        public IHttpActionResult Put([FromUri] int id,[FromBody]Category category)
+        {
+            category.CategoryId = id;
+            categoryRepository.Update(category);
+            return Ok(category);
+        }
     }
 }
