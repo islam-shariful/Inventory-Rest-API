@@ -13,5 +13,9 @@ namespace Inventory_Rest_API.Repositories
             //return this.context.Products.OrderBy(x => x.Price).Take(2).ToList();
             return this.GetAll().OrderByDescending(x => x.Price).Take(top).ToList();
         }
+        public List<Product> GetProductsByCategory(int id)
+        {
+            return this.GetAll().Where(x => x.CategoryId == id).ToList();
+        }
     }
 }

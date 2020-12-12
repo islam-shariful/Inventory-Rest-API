@@ -44,5 +44,11 @@ namespace Inventory_Rest_API.Controllers
             categoryRepository.Delete(id);
             return StatusCode(HttpStatusCode.NoContent);
         }
+        [Route("api/categories/{id}/products")]
+        public IHttpActionResult GetProductsByCategoryId(int id)
+        {
+            ProductRepository productRepository = new ProductRepository();            
+            return Ok(productRepository.GetProductsByCategory(id));
+        }
     }
 }
