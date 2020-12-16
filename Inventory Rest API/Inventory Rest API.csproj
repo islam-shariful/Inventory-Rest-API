@@ -127,6 +127,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InventoryModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Link.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>InventoryModel.tt</DependentUpon>
     </Compile>

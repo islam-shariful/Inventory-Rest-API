@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace Inventory_Rest_API.Controllers
@@ -26,10 +27,12 @@ namespace Inventory_Rest_API.Controllers
             {
                 return StatusCode(HttpStatusCode.NoContent);
             }
-            else
-            {
-                return Ok(categoryRepository.Get(id));
-            }
+            category.Links.Add(new Link() { Url = HttpContext.Current.Request.Url.AbsoluteUri.ToString(), Method = "Get", Relation = "Self" });
+            category.Links.Add(new Link() { Url = "http://localhost:53966/api/Categories/", Method = "Get", Relation = "Get all categories" });
+            category.Links.Add(new Link() { Url = "http://localhost:53966/api/Categories/", Method = "Post", Relation = "Create new category resources" });
+            category.Links.Add(new Link() { Url = "http://localhost:53966/api/Categories/"+id, Method = "Put", Relation = "Modify existing category resources" });
+            category.Links.Add(new Link() { Url = "http://localhost:53966/api/Categories/"+id, Method = "Delete", Relation = "Remove existing category resources" });
+            return Ok(categoryRepository.Get(id));
         }
         [Route("")]
         public IHttpActionResult Post(Category category)
