@@ -15,12 +15,12 @@ namespace Inventory_Rest_API.Controllers
     {
         CategoryRepository categoryRepository = new CategoryRepository();
         [Route("")]
-        public IHttpActionResult GetAll()
+        public IHttpActionResult Get()
         {
             return Ok(categoryRepository.GetAll());
         }
         [Route("{id}", Name="GetCategoryById")]
-        public IHttpActionResult GetAll(int id)
+        public IHttpActionResult Get(int id)
         {
             var category = categoryRepository.Get(id);
             if(category == null)
